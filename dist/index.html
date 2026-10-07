@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Yuri Fernandes — Uma jornada pelo meu trabalho</title>
+  <meta name="description" content="Explore o portfólio de Yuri Fernandes em um bosque 3D. Desenvolvimento back-end, inteligência artificial, automação e experiências digitais.">
+  <meta name="theme-color" content="#17241e">
+  <meta property="og:title" content="Yuri Fernandes — Uma jornada pelo meu trabalho">
+  <meta property="og:description" content="IA, desenvolvimento e curiosidade. Escolha uma trilha e conheça minha trajetória.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="app.js"></script><script defer src="assets/three.min.js"></script><script defer src="scene.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#direct-reading">Ir para o conteúdo do portfólio</a>
+  <div id="oregon-real" aria-label="Bosque interativo do portfólio">
+    <div class="or-scene" aria-label="Cenário de um bosque com cabanas de madeira. Arraste para olhar e use WASD para caminhar após iniciar a jornada."><div class="or-loading" aria-hidden="true"></div></div>
+    <button data-walk type="button" class="engine-control" aria-label="Ativar movimento no bosque">Ativar caminhada</button>
+    <select data-light class="engine-control" aria-label="Luz do bosque"><option value="gold">Entardecer</option><option value="mist">Manhã</option></select>
+    <span data-status class="sr-only" aria-live="polite"></span>
+  </div>
+  <div class="scrim" aria-hidden="true"></div>
+  <header class="header">
+    <a href="#" id="home" class="brand" aria-label="Yuri Fernandes, início"><span class="brand-mark">yf<span>↗</span></span><span class="brand-copy">YURI FERNANDES<small>PORTFÓLIO INTERATIVO</small></span></a>
+    <div class="header-actions"><button type="button" class="text-link" id="text-mode">Versão em texto</button></div>
+  </header>
+  <main>
+    <section id="intro" class="intro" aria-labelledby="intro-title">
+      <div class="intro-copy">
+        <div class="eyebrow"><span class="status-dot"></span> DESENVOLVIMENTO · IA · AUTOMAÇÃO</div>
+        <h1 id="intro-title">Toda ideia<br>abre um<br><em>novo caminho.</em></h1>
+        <p class="intro-description">Sou <strong>Yuri Fernandes</strong>. Entre código, inteligência artificial e curiosidade, construo meu caminho criando soluções digitais.</p>
+        <div class="intro-actions"><button class="primary-button" id="start" type="button" disabled><span id="start-label">Preparando o bosque</span><span aria-hidden="true">↗</span></button><button id="direct-intro" class="subtle-button" type="button">Prefiro conhecer pelo texto</button></div>
+        <div class="loading-line" id="loading-line"><span id="loading-message" role="status">Preparando sua jornada…</span><span id="loading-number" aria-hidden="true">0%</span><div class="loading-track"><span id="loading-fill"></span></div></div>
+      </div>
+      <div class="intro-note"><span class="compass" aria-hidden="true">N<br>✧</span><p>Um bosque. Vários caminhos.<br><span>Uma maneira diferente de me conhecer.</span></p></div>
+    </section>
+    <section class="journey" id="journey" hidden aria-label="Explore o portfólio">
+      <div class="location-caption"><span class="eyebrow" id="location-kicker">SEU PRÓXIMO DESTINO</span><h2 id="location-title">Por onde começamos?</h2><p id="location-copy">Escolha um tema. Eu mostro o caminho.</p></div>
+      <div class="world-controls"><button id="light-toggle" type="button" aria-label="Trocar para luz da manhã">☀ <span>Entardecer</span></button><button id="help-toggle" type="button" aria-expanded="false" aria-controls="controls-help">? <span>Controles</span></button></div>
+      <div id="controls-help" class="controls-help" hidden>Arraste para olhar. WASD ou setas para andar. Shift para acelerar. Q / E para girar. Esc para pausar.<br>Escolha um tema para uma caminhada guiada.</div>
+      <div id="travel" class="travel" hidden><div><span id="travel-label" role="status">A caminho…</span><button id="skip-travel" type="button">Ir direto <span aria-hidden="true">→</span></button></div><div class="travel-track"><span id="travel-fill"></span></div></div>
+      <nav class="destinations" aria-label="Destinos do portfólio">
+        <button type="button" data-topic="about"><span class="destination-number">01</span><span>Sobre mim</span><span class="destination-arrow">↗</span></button>
+        <button type="button" data-topic="experience"><span class="destination-number">02</span><span>Experiência</span><span class="destination-arrow">↗</span></button>
+        <button type="button" data-topic="projects"><span class="destination-number">03</span><span>Projetos</span><span class="destination-arrow">↗</span></button>
+        <button type="button" data-topic="skills"><span class="destination-number">04</span><span>Tecnologias</span><span class="destination-arrow">↗</span></button>
+        <button type="button" data-topic="education"><span class="destination-number">05</span><span>Formação</span><span class="destination-arrow">↗</span></button>
+        <button type="button" data-topic="contact"><span class="destination-number">06</span><span>Contato</span><span class="destination-arrow">↗</span></button>
+      </nav>
+      <div class="mobile-movement" aria-label="Movimento por toque"><button type="button" data-move="KeyA" aria-label="Mover à esquerda">←</button><button type="button" data-move="KeyW" aria-label="Avançar">↑</button><button type="button" data-move="KeyS" aria-label="Recuar">↓</button><button type="button" data-move="KeyD" aria-label="Mover à direita">→</button></div>
+    </section>
+    <aside id="reader" class="reader" hidden aria-labelledby="reader-title">
+      <div class="reader-top"><span id="reader-kicker" class="eyebrow"></span><button type="button" id="close-reader" class="icon-button" aria-label="Fechar informações e explorar o bosque">×</button></div>
+      <div class="reader-scroll"><h2 id="reader-title" tabindex="-1"></h2><div id="reader-content"></div></div>
+      <div class="reader-footer"><span id="reader-place"></span><button type="button" id="next-topic">Próximo caminho <span aria-hidden="true">→</span></button></div>
+    </aside>
+    <section id="direct-reading" class="direct-reading" hidden aria-labelledby="direct-title"><div class="direct-top"><div><span class="eyebrow">PORTFÓLIO · LEITURA DIRETA</span><h2 id="direct-title" tabindex="-1">Yuri Fernandes</h2></div><button id="close-direct" class="icon-button" type="button" aria-label="Voltar ao bosque">×</button></div><div id="direct-content"></div></section>
+  </main>
+  <footer class="footer"><span>BELO HORIZONTE, BRASIL</span><span id="footer-right">CURIOSIDADE COMO PONTO DE PARTIDA</span></footer>
+<noscript><div class="noscript">Yuri Fernandes — Desenvolvimento, IA e automação. Para explorar o bosque, ative o JavaScript. Conheça minha trajetória no <a href="https://www.linkedin.com/in/yuriferr/" target="_blank" rel="noopener noreferrer">LinkedIn</a> e meus projetos no <a href="https://github.com/Yuriferr" target="_blank" rel="noopener noreferrer">GitHub</a>.</div></noscript>
+</body>
+</html>
