@@ -25,4 +25,8 @@ O site é estático. Publique o conteúdo de `dist` em um serviço de hospedagem
 
 Baseado no currículo fornecido e nas informações públicas de LinkedIn e GitHub consultadas em 7 de outubro de 2026. Os projetos de IA são apresentados como experimentos, desafios técnicos ou projetos acadêmicos, sem atribuir resultados de produção não comprovados.
 
-Os contatos direcionam aos perfis profissionais. O site e este pacote não disponibilizam e-mail, telefone ou arquivo do currículo. A publicação no Sites permanece privada, visível apenas ao proprietário.
+Os contatos direcionam aos perfis profissionais. O site e este pacote não disponibilizam e-mail, telefone ou arquivo do currículo. O projeto está preparado para publicação pública no GitHub e no Vercel.
+
+## Publicação no Vercel
+
+Importe o repositório no Vercel. A configuração em vercel.json define dist como pasta de saída; não há instalação ou etapa de compilação. Cada atualização da branch main pode publicar uma nova versão pelo vínculo com o GitHub.
